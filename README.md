@@ -1,50 +1,57 @@
-# Welcome to your Expo app 👋
+# Vandebron Mobile Developer Take-home Assessment
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Thanks for applying to Vandebron — if you've made it this far we already think you're pretty great.
 
-## Get started
+---
 
-1. Install dependencies
+## Setup
 
-   ```bash
-   npm install
-   ```
+1. `yarn`
+2. `yarn start` — scan the QR code with **Expo Go** on your phone, or press `i` / `a` for simulator
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## The task
 
-In the output, you'll find options to open the app in a
+You're working on a mobile energy consumption calculator. The existing code is a starting point — there are bugs to find, features to build, and plenty of room to make it your own.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+The goal screenshot below is a reference, not a strict spec. Make it your own.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+| Where you're starting | Reference |
+|---|---|
+| ![Starter app](./assets/images/starter-app.png) | ![Goal app](./assets/images/goal-app.png) |
 
-## Get a fresh project
+### Areas to focus on
 
-When you're ready, run:
+Pick what you'd like to focus on and implement those.
+
+- **Fix the bugs** — there are several in the existing code. Find and fix what you can.
+- **Implement `ProductSelector`** — currently a stub. Users should be able to pick between electricity-only or electricity + gas.
+- **Calculate consumption** — estimate usage from the inputs. Return type: `{ electricity: number, gas?: number }`. Bigger house and more residents = higher consumption; solar panels reduce electricity. Gas should only appear when the electricity + gas product is selected.
+- **Make it production-ready** — there are things you'd want to clean up before shipping.
+
+---
+
+## Notes
+
+- The "Ok →" button doesn't need to navigate anywhere.
+- External libraries are fine.
+
+---
+
+## Run tests
 
 ```bash
-npm run reset-project
+yarn test
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## Submitting
 
-To learn more about developing your project with Expo, look at the following resources:
+When you're done:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+1. If anything is broken or intentionally left incomplete, add a brief `NOTES.md` so we don't mistake it for an accident.
+2. Zip up the project **with the `.git` folder included** and share via Google Drive, Dropbox, or similar.
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+We'll walk through your changes together in the interview — be ready to talk about the decisions you made.
