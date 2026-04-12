@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { View, Pressable, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from "react";
+import { Pressable, StyleSheet, View } from "react-native";
 
-import { getHouseTypes } from '@/src/services/houseTypes.service';
-import {
-  HouseApartment,
-  HouseRowHome,
-} from '@/src/icons';
+import { HouseApartment, HouseRowHome } from "@/src/icons";
+import { getHouseTypes } from "@/src/services/houseTypes.service";
 
 interface HouseTypeSelectorProps {
   value: string;
@@ -23,21 +20,24 @@ const iconMap: Record<string, React.ReactNode> = {
   townhouse: <HouseRowHome />,
 };
 
-export default function HouseTypeSelector({ value, onChange }: HouseTypeSelectorProps) {
+export default function HouseTypeSelector({
+  value,
+  onChange,
+}: HouseTypeSelectorProps) {
   const [houseTypes, setHouseTypes] = useState<HouseType[]>([]);
-  console.log('HouseTypeSelector - houseTypes=', houseTypes);
+  console.log("HouseTypeSelector - houseTypes=", houseTypes);
 
   useEffect(() => {
     const onLoad = async () => {
       let types = await getHouseTypes();
-      console.log('HouseTypeSelector - types=', types);
+      console.log("HouseTypeSelector - types=", types);
       (types as { id: string; icon?: React.ReactNode }[]).forEach((type) => {
         type.icon = iconMap[type.id] ?? <HouseRowHome />;
       });
       setHouseTypes(types as HouseType[]);
     };
     onLoad();
-  });
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -59,7 +59,7 @@ export default function HouseTypeSelector({ value, onChange }: HouseTypeSelector
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 6,
   },
   button: {
@@ -67,13 +67,13 @@ const styles = StyleSheet.create({
     height: 56,
     borderRadius: 8,
     borderWidth: 2,
-    borderColor: '#e5e7eb',
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderColor: "#e5e7eb",
+    backgroundColor: "white",
+    alignItems: "center",
+    justifyContent: "center",
   },
   selected: {
-    borderColor: '#2563eb',
-    backgroundColor: '#eff6ff',
+    borderColor: "#2563eb",
+    backgroundColor: "#eff6ff",
   },
 });
