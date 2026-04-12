@@ -25,7 +25,7 @@ export default function HouseTypeSelector({
   onChange,
 }: HouseTypeSelectorProps) {
   const [houseTypes, setHouseTypes] = useState<HouseType[]>([]);
-  console.log("HouseTypeSelector - houseTypes=", houseTypes);
+  console.table(houseTypes);
 
   useEffect(() => {
     const onLoad = async () => {
@@ -38,6 +38,8 @@ export default function HouseTypeSelector({
     };
     onLoad();
   }, []);
+
+  console.log("value", value);
 
   return (
     <View style={styles.container}>
