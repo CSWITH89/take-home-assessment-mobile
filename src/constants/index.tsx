@@ -7,7 +7,10 @@ import {
   Electric,
   ElectricAndGas,
   HouseApartment,
+  HouseCornerHouse,
+  HouseFreestanding,
   HouseRowHome,
+  HouseSemiDetached,
   People1,
   People2,
   People3,
@@ -31,9 +34,9 @@ export const PRODUCT_TYPE_LABELS: Record<ProductTypeId, string> = {
 export const HOUSE_ICON_MAP: IconRecord = {
   apartment: <HouseApartment />,
   townhouse: <HouseRowHome />,
-  "corner-house": <HouseRowHome />,
-  "two-under-one-roof": <HouseRowHome />,
-  "detached-house": <HouseRowHome />,
+  "corner-house": <HouseCornerHouse />,
+  "two-under-one-roof": <HouseSemiDetached />,
+  "detached-house": <HouseFreestanding />,
 };
 
 export const RESIDENT_TYPE_ICONS: React.ReactNode[] = [
