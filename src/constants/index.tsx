@@ -1,0 +1,55 @@
+import {
+  HouseTypeId,
+  IconRecord,
+  ProductTypeId,
+} from "@/src//types/globalTypes";
+import {
+  Electric,
+  ElectricAndGas,
+  HouseApartment,
+  HouseRowHome,
+  People1,
+  People2,
+  People3,
+  People4,
+  People5,
+} from "@/src/icons";
+
+export const HOUSE_TYPE_LABELS: Record<HouseTypeId, string> = {
+  apartment: "Appartement",
+  townhouse: "Tussenwoning",
+  "corner-house": "Hoekwoning",
+  "two-under-one-roof": "2 onder 1 Kap",
+  "detached-house": "Vrijstaand",
+};
+
+export const PRODUCT_TYPE_LABELS: Record<ProductTypeId, string> = {
+  electric: "Stroom",
+  "electric-and-gas": "Stroom & Gas",
+};
+
+export const HOUSE_ICON_MAP: IconRecord = {
+  apartment: <HouseApartment />,
+  townhouse: <HouseRowHome />,
+  "corner-house": <HouseRowHome />,
+  "two-under-one-roof": <HouseRowHome />,
+  "detached-house": <HouseRowHome />,
+};
+
+export const RESIDENT_TYPE_ICONS: React.ReactNode[] = [
+  <People1 key="people-1" />,
+  <People2 key="people-2" />,
+  <People3 key="people-3" />,
+  <People4 key="people-4" />,
+  <People5 key="people-5" />,
+];
+
+export const PRODUCT_TYPES = [
+  { id: "electric", label: "Stroom" },
+  { id: "electric-and-gas", label: "Stroom & Gas" },
+];
+
+export const PRODUCT_ICON_MAP: IconRecord = {
+  electric: <Electric />,
+  "electric-and-gas": <ElectricAndGas />,
+};

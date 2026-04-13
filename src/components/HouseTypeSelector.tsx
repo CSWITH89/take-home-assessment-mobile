@@ -1,29 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 
-import { HouseApartment, HouseRowHome } from "@/src/icons";
+import { HouseRowHome } from "@/src/icons";
 import { getHouseTypes } from "@/src/services/houseTypes.service";
-
-interface HouseTypeSelectorProps {
-  value: string;
-  onChange: (value: string) => void;
-}
-
-type HouseType = {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-};
-
-const iconMap: Record<string, React.ReactNode> = {
-  apartment: <HouseApartment />,
-  townhouse: <HouseRowHome />,
-};
+import { HouseType, HouseTypeId, SelectorProps } from "@/src/types/globalTypes";
+import { HOUSE_ICON_MAP } from "../constants";
 
 export default function HouseTypeSelector({
   value,
   onChange,
-}: HouseTypeSelectorProps) {
+}: SelectorProps<HouseTypeId>) {
   const [houseTypes, setHouseTypes] = useState<HouseType[]>([]);
   console.table(houseTypes);
 
@@ -31,9 +17,13 @@ export default function HouseTypeSelector({
     const onLoad = async () => {
       let types = await getHouseTypes();
       console.log("HouseTypeSelector - types=", types);
-      (types as { id: string; icon?: React.ReactNode }[]).forEach((type) => {
-        type.icon = iconMap[type.id] ?? <HouseRowHome />;
-      });
+      (types as { id: HouseTypeId; icon?: React.ReactNode }[]).forEach(
+        (type) => {
+          type.icon = HOUSE_ICON_MAP[type.id as HouseTypeId] ?? (
+            <HouseRowHome />
+          );
+        },
+      );
       setHouseTypes(types as HouseType[]);
     };
     onLoad();

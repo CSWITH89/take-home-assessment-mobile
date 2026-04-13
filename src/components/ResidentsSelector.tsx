@@ -1,28 +1,15 @@
+import { RESIDENT_TYPE_ICONS } from "@/src/constants";
+import { SelectorProps } from "@/src/types/globalTypes";
 import React from "react";
 import { Pressable, StyleSheet, View } from "react-native";
-
-import { People1, People2, People3, People4, People5 } from "@/src/icons";
-
-const residentOptions = [
-  <People1 />,
-  <People2 />,
-  <People3 />,
-  <People4 />,
-  <People5 />,
-];
-
-interface ResidentsSelectorProps {
-  value: number;
-  onChange: (value: number) => void;
-}
 
 export default function ResidentsSelector({
   value,
   onChange,
-}: ResidentsSelectorProps) {
+}: SelectorProps<number>) {
   return (
     <View style={styles.container}>
-      {residentOptions.map((residentOption, index) => (
+      {RESIDENT_TYPE_ICONS.map((residentOption, index) => (
         <Pressable
           key={`residentOption-${index + 1}`}
           onPress={() => onChange(index + 1)}
