@@ -1,4 +1,5 @@
 import {
+  ConsumptionRecord,
   HouseTypeId,
   IconRecord,
   ProductTypeId,
@@ -56,3 +57,24 @@ export const PRODUCT_ICON_MAP: IconRecord = {
   electric: <Electric />,
   "electric-and-gas": <ElectricAndGas />,
 };
+
+export const GAS_UNITS = "m³/jaar";
+export const ELECTRICITY_UNITS = "kWh/jaar";
+
+export const AVG_YEARLY_GAS: ConsumptionRecord = {
+  apartment: 750,
+  townhouse: 990,
+  "corner-house": 1160,
+  "two-under-one-roof": 1320,
+  "detached-house": 1740,
+};
+
+export const AVG_YEARLY_ELECTRICITY: ConsumptionRecord = {
+  apartment: 2000,
+  townhouse: 2500,
+  "corner-house": 2800,
+  "two-under-one-roof": 3000,
+  "detached-house": 3500,
+};
+
+export const SOLAR_PANEL_REDUCTION: number = 300;

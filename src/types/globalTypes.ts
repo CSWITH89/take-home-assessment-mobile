@@ -32,3 +32,12 @@ export interface ConsumptionTotal {
   electricity: number;
   gas?: number;
 }
+
+export interface CalcConsumptionParams {
+  houseType: HouseTypeId;
+  residents: number;
+  productType: ProductTypeId;
+  hasSolarPanels: boolean;
+}
+
+export type ConsumptionRecord = Record<HouseTypeId, number>;

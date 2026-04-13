@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -6,11 +6,13 @@ import HouseTypeSelector from "@/src/components/HouseTypeSelector";
 import ProductSelector from "@/src/components/ProductSelector";
 import ResidentsSelector from "@/src/components/ResidentsSelector";
 import { HOUSE_TYPE_LABELS, PRODUCT_TYPE_LABELS } from "@/src/constants";
+import { SolarPanel } from "@/src/icons";
 import {
   ConsumptionTotal,
   HouseTypeId,
   ProductTypeId,
 } from "@/src/types/globalTypes";
+import calculateConsumption from "@/src/utils/calculateConsumption";
 
 export default function ConsumptionCalculatorScreen() {
   const [houseType, setHouseType] = useState<HouseTypeId>("apartment");
@@ -23,6 +25,15 @@ export default function ConsumptionCalculatorScreen() {
   });
 
   console.log("ConsumptionCalculator - computedConsumption=", consumption);
+
+  useEffect(() => {
+    const calculatedConsumption = calculateConsumption({
+      houseType,
+      residents,
+      productType,
+      hasSolarPanels,
+    });
+  }, [houseType, productType, residents, hasSolarPanels]);
 
   const handleResidentsSelectorChange = (incomingResidents: number) => {
     if (incomingResidents > 0) {
@@ -83,6 +94,7 @@ export default function ConsumptionCalculatorScreen() {
                   hasSolarPanels && styles.checkboxChecked,
                 ]}
               />
+              <SolarPanel />
               <Text style={styles.checkboxLabel}>Zonnepanelen</Text>
               <Text style={styles.infoIcon}>ⓘ</Text>
             </Pressable>
@@ -156,9 +168,9 @@ const styles = StyleSheet.create({
   checkboxRow: {
     flexDirection: "row",
     alignItems: "center",
+    gap: 8,
   },
   checkboxBox: {
-    marginRight: 8,
     width: 18,
     height: 18,
     borderWidth: 2,
