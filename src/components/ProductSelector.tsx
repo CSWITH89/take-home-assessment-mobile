@@ -13,7 +13,6 @@ export default function ProductSelector({
   onChange,
 }: SelectorProps<ProductTypeId>) {
   const [productTypes, setProductTypes] = useState<ProductType[]>([]);
-  console.table(productTypes);
 
   useEffect(() => {
     const onLoad = async () => {

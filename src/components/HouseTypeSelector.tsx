@@ -11,7 +11,6 @@ export default function HouseTypeSelector({
   onChange,
 }: SelectorProps<HouseTypeId>) {
   const [houseTypes, setHouseTypes] = useState<HouseType[]>([]);
-  console.table(houseTypes);
 
   useEffect(() => {
     const onLoad = async () => {
