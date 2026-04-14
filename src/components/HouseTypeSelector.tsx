@@ -16,7 +16,6 @@ export default function HouseTypeSelector({
   useEffect(() => {
     const onLoad = async () => {
       let types = await getHouseTypes();
-      console.log("HouseTypeSelector - types=", types);
       (types as { id: HouseTypeId; icon?: React.ReactNode }[]).forEach(
         (type) => {
           type.icon = HOUSE_ICON_MAP[type.id as HouseTypeId] ?? (
@@ -28,8 +27,6 @@ export default function HouseTypeSelector({
     };
     onLoad();
   }, []);
-
-  console.log("value", value);
 
   return (
     <View style={styles.container}>

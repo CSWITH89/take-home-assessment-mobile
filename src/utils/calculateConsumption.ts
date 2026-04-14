@@ -56,7 +56,6 @@ const calculateConsumption = ({
     );
   }
 
-  console.log("CONSUMPTION: ", consumption);
   return consumption;
 };
 

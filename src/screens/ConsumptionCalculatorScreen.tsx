@@ -24,8 +24,6 @@ export default function ConsumptionCalculatorScreen() {
     electricity: 0,
   });
 
-  console.log("ConsumptionCalculator - computedConsumption=", consumption);
-
   useEffect(() => {
     const calculatedConsumption = calculateConsumption({
       houseType,

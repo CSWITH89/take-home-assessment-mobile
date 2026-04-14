@@ -18,7 +18,6 @@ export default function ProductSelector({
   useEffect(() => {
     const onLoad = async () => {
       let types = PRODUCT_TYPES;
-      console.log("ProductTypeselector - types=", types);
       (types as { id: ProductTypeId; icon?: React.ReactNode }[]).forEach(
         (type) => {
           type.icon = PRODUCT_ICON_MAP[type.id as ProductTypeId] ?? (
