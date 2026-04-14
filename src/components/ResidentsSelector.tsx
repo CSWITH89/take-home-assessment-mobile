@@ -15,6 +15,9 @@ export default function ResidentsSelector({
           key={`residentOption-${index + 1}`}
           onPress={() => onChange(index + 1)}
           style={[styles.button, validValue === index + 1 && styles.selected]}
+          accessibilityRole="button"
+          accessibilityLabel={`residentOption-${index + 1}`}
+          accessibilityState={{ selected: validValue === index + 1 }}
         >
           {residentOption}
         </Pressable>
