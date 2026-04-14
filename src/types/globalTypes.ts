@@ -19,9 +19,8 @@ export type ProductType = {
   icon: React.ReactNode;
 };
 
-export type IconRecord =
-  | Record<HouseTypeId, React.ReactNode>
-  | Record<ProductTypeId, React.ReactNode>;
+export type HouseIconRecord = Record<HouseTypeId, React.ReactNode>;
+export type ProductIconRecord = Record<ProductTypeId, React.ReactNode>;
 
 export interface SelectorProps<T> {
   value: T;

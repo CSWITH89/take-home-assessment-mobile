@@ -1,7 +1,8 @@
 import {
   ConsumptionRecord,
+  HouseIconRecord,
   HouseTypeId,
-  IconRecord,
+  ProductIconRecord,
   ProductTypeId,
 } from "@/src//types/globalTypes";
 import {
@@ -32,7 +33,7 @@ export const PRODUCT_TYPE_LABELS: Record<ProductTypeId, string> = {
   "electric-and-gas": "Stroom & Gas",
 };
 
-export const HOUSE_ICON_MAP: IconRecord = {
+export const HOUSE_ICON_MAP: HouseIconRecord = {
   apartment: <HouseApartment />,
   townhouse: <HouseRowHome />,
   "corner-house": <HouseCornerHouse />,
@@ -53,7 +54,7 @@ export const PRODUCT_TYPES = [
   { id: "electric-and-gas", label: "Stroom & Gas" },
 ];
 
-export const PRODUCT_ICON_MAP: IconRecord = {
+export const PRODUCT_ICON_MAP: ProductIconRecord = {
   electric: <Electric />,
   "electric-and-gas": <ElectricAndGas />,
 };

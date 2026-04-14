@@ -4,6 +4,9 @@ import HouseTypeSelector from "./HouseTypeSelector";
 jest.mock("@/src/icons", () => ({
   HouseApartment: "HouseApartment",
   HouseRowHome: "HouseRowHome",
+  HouseCornerHouse: "HouseCornerHouse",
+  HouseSemiDetached: "HouseSemiDetached",
+  HouseFreestanding: "HouseSemiDetached",
 }));
 
 describe("HouseTypeSelector", () => {
