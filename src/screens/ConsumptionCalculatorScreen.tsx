@@ -33,6 +33,7 @@ export default function ConsumptionCalculatorScreen() {
       productType,
       hasSolarPanels,
     });
+    setConsumption(calculatedConsumption);
   }, [houseType, productType, residents, hasSolarPanels]);
 
   const handleResidentsSelectorChange = (incomingResidents: number) => {

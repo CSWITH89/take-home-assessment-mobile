@@ -78,3 +78,5 @@ export const AVG_YEARLY_ELECTRICITY: ConsumptionRecord = {
 };
 
 export const SOLAR_PANEL_REDUCTION: number = 300;
+
+export const PER_PERSON_MODIFIER = 0.2;
