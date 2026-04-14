@@ -7,13 +7,14 @@ export default function ResidentsSelector({
   value,
   onChange,
 }: SelectorProps<number>) {
+  const validValue = value > 0 && value < 6 ? value : 1;
   return (
     <View style={styles.container}>
       {RESIDENT_TYPE_ICONS.map((residentOption, index) => (
         <Pressable
           key={`residentOption-${index + 1}`}
           onPress={() => onChange(index + 1)}
-          style={[styles.button, value === index + 1 && styles.selected]}
+          style={[styles.button, validValue === index + 1 && styles.selected]}
         >
           {residentOption}
         </Pressable>

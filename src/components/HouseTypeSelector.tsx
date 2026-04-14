@@ -4,7 +4,7 @@ import { Pressable, StyleSheet, View } from "react-native";
 import { HouseRowHome } from "@/src/icons";
 import { getHouseTypes } from "@/src/services/houseTypes.service";
 import { HouseType, HouseTypeId, SelectorProps } from "@/src/types/globalTypes";
-import { HOUSE_ICON_MAP } from "../constants";
+import { HOUSE_ICON_MAP, HOUSE_TYPES } from "../constants";
 
 export default function HouseTypeSelector({
   value,
@@ -27,16 +27,20 @@ export default function HouseTypeSelector({
     onLoad();
   }, []);
 
+  const validValue = HOUSE_TYPES.some((t) => t.id === value)
+    ? value
+    : "apartment";
+
   return (
     <View style={styles.container}>
       {houseTypes.map((type) => (
         <Pressable
           key={type.id}
           onPress={() => onChange(type.id)}
-          style={[styles.button, value === type.id && styles.selected]}
+          style={[styles.button, validValue === type.id && styles.selected]}
           accessibilityRole="button"
           accessibilityLabel={type.id}
-          accessibilityState={{ selected: value === type.id }}
+          accessibilityState={{ selected: validValue === type.id }}
         >
           {type.icon}
         </Pressable>

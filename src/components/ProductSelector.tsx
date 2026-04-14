@@ -29,16 +29,20 @@ export default function ProductSelector({
     onLoad();
   }, []);
 
+  const validValue = PRODUCT_TYPES.some((t) => t.id === value)
+    ? value
+    : "electric-and-gas";
+
   return (
     <View style={styles.container}>
       {productTypes.map((type) => (
         <Pressable
           key={type.id}
           onPress={() => onChange(type.id)}
-          style={[styles.button, value === type.id && styles.selected]}
+          style={[styles.button, validValue === type.id && styles.selected]}
           accessibilityRole="button"
           accessibilityLabel={type.id}
-          accessibilityState={{ selected: value === type.id }}
+          accessibilityState={{ selected: validValue === type.id }}
         >
           {type.icon}
         </Pressable>
