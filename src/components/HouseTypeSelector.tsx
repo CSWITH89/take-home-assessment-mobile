@@ -14,15 +14,19 @@ export default function HouseTypeSelector({
 
   useEffect(() => {
     const onLoad = async () => {
-      let types = await getHouseTypes();
-      (types as { id: HouseTypeId; icon?: React.ReactNode }[]).forEach(
-        (type) => {
-          type.icon = HOUSE_ICON_MAP[type.id as HouseTypeId] ?? (
-            <HouseRowHome />
-          );
-        },
-      );
-      setHouseTypes(types as HouseType[]);
+      try {
+        let types = await getHouseTypes();
+        (types as { id: HouseTypeId; icon?: React.ReactNode }[]).forEach(
+          (type) => {
+            type.icon = HOUSE_ICON_MAP[type.id as HouseTypeId] ?? (
+              <HouseRowHome />
+            );
+          },
+        );
+        setHouseTypes(types as HouseType[]);
+      } catch (error) {
+        console.warn("Error Logging: ", error);
+      }
     };
     onLoad();
   }, []);
