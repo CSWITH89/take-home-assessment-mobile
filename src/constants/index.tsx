@@ -1,6 +1,7 @@
 import {
   ConsumptionRecord,
   HouseIconRecord,
+  HouseType,
   HouseTypeId,
   ProductIconRecord,
   ProductTypeId,
@@ -47,6 +48,14 @@ export const RESIDENT_TYPE_ICONS: React.ReactNode[] = [
   <People3 key="people-3" />,
   <People4 key="people-4" />,
   <People5 key="people-5" />,
+];
+
+export const HOUSE_TYPES: HouseType[] = [
+  { id: "apartment", label: "Appartement" },
+  { id: "townhouse", label: "Tussenwoning" },
+  { id: "corner-house", label: "Hoekwoning" },
+  { id: "two-under-one-roof", label: "2 onder 1 Kap" },
+  { id: "detached-house", label: "Vrijstaand" },
 ];
 
 export const PRODUCT_TYPES = [
